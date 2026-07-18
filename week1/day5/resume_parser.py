@@ -1,10 +1,15 @@
+import json
+import os
+from typing import List
+
 import fitz
 from docx import Document
-from pydantic import BaseModel
-from typing import List
-from groq import Groq
 from dotenv import load_dotenv
-import os
+from groq import Groq
+from pydantic import BaseModel
+
+
+# Environment # 
 
 load_dotenv()
 
@@ -12,7 +17,7 @@ client = Groq(
     api_key=os.getenv("GROQ_API_KEY")
 )
 
-# Pydantic Models
+# Pydantic Models #
 
 class Experience(BaseModel):
     company: str
@@ -33,26 +38,25 @@ class Resume(BaseModel):
     certifications: List[str]
 
 
-# Resume Readers
+# Resume Readers #
 
-def read_pdf(filepath):
+def read_pdf(filepath: str) -> str:
     """
-    Reads a PDF file and returns all text as a string.
+    Read a PDF file and return its text.
     """
 
     text = ""
 
-    document = fitz.open(filepath)
-
-    for page in document:
-        text += page.get_text()
+    with fitz.open(filepath) as document:
+        for page in document:
+            text += page.get_text()
 
     return text
 
 
-def read_docx(filepath):
+def read_docx(filepath: str) -> str:
     """
-    Reads a DOCX file and returns all text as a string.
+    Read a DOCX file and return its text.
     """
 
     document = Document(filepath)
@@ -65,81 +69,115 @@ def read_docx(filepath):
     return text
 
 
-def read_resume(filepath):
+def read_resume(filepath: str) -> str:
     """
-    Chooses the correct reader based on file extension.
+    Read a resume based on its file extension.
     """
 
     if filepath.endswith(".pdf"):
         return read_pdf(filepath)
 
-    elif filepath.endswith(".docx"):
+    if filepath.endswith(".docx"):
         return read_docx(filepath)
 
-    return None
+    raise ValueError(
+        "Unsupported file format. Only PDF and DOCX files are supported."
+    )
 
-def parse_resume(resume_text):
+
+# Resume Parser # 
+
+def parse_resume(resume_text: str) -> Resume:
     """
-    Sends resume text to the LLM and returns a structured Resume object.
+    Parse resume text into a structured Resume object using the LLM.
     """
 
-    completion = client.chat.completions.parse(
+    completion = client.chat.completions.create(
         model="llama-3.3-70b-versatile",
+        temperature=0,
         messages=[
             {
                 "role": "system",
                 "content": """
-                    You are an expert HR recruiter and resume parser.
+You are an expert HR recruiter and resume parser.
 
-                    Extract all resume information accurately.
+Extract the resume into the following JSON schema.
 
-                    Return the response according to the Resume schema.
-                    """
+Return ONLY valid JSON.
+
+{
+    "name": "",
+    "email": "",
+    "phone": "",
+    "total_experience_years": 0,
+    "skills": [],
+    "experience": [
+        {
+            "company": "",
+            "role": "",
+            "duration": "",
+            "description": "",
+            "skills_used": []
+        }
+    ],
+    "projects": [],
+    "certifications": []
+}
+"""
             },
             {
                 "role": "user",
                 "content": resume_text
             }
-        ],
-        response_format=Resume,
+        ]
     )
 
-    parsed_resume = completion.choices[0].message.parsed
+    response = completion.choices[0].message.content.strip()
 
-    return parsed_resume
-# Testing
+    if response.startswith("```json"):
+        response = response.replace("```json", "", 1)
+
+    if response.endswith("```"):
+        response = response[:-3]
+
+    response = response.strip()
+
+    try:
+        data = json.loads(response)
+        return Resume(**data)
+
+    except json.JSONDecodeError as e:
+        raise ValueError(f"Invalid JSON returned by the LLM.\n\n{response}") from e
+
+    except Exception as e:
+        raise ValueError(f"Failed to parse resume.\n\n{e}") from e
+    
+
+# Testing # 
 
 def main():
+    resume_files = [
+        ("PDF", "resumes/resume1.pdf"),
+        ("DOCX", "resumes/resume3.docx"),
+    ]
 
-    # PDF
+    for file_type, filepath in resume_files:
+        print("=" * 70)
+        print(f"PARSED {file_type} RESUME")
+        print("=" * 70)
 
-    pdf_file = "resumes/resume1.pdf"
+        try:
+            resume_text = read_resume(filepath)
+            parsed_resume = parse_resume(resume_text)
 
-    pdf_text = read_resume(pdf_file)
+            print(type(parsed_resume))
+            print()
+            print(parsed_resume.model_dump_json(indent=4))
 
-    print("=" * 70)
-    print("PARSED PDF RESUME")
-    print("=" * 70)
+        except Exception as e:
+            print(f"Error: {e}")
 
-    parsed_resume = parse_resume(pdf_text)
-
-    print(parsed_resume)
-
-    print()
-
-    # DOCX
-
-    docx_file = "resumes/resume3.docx"
-
-    docx_text = read_resume(docx_file)
-
-    print("=" * 70)
-    print("PARSED DOCX RESUME")
-    print("=" * 70)
-
-    parsed_resume = parse_resume(docx_text)
-
-    print(parsed_resume)
+        print()
 
 
 if __name__ == "__main__":
