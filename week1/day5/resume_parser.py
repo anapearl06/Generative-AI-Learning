@@ -1,7 +1,6 @@
 import json
 import os
 from typing import List
-
 import fitz
 from docx import Document
 from dotenv import load_dotenv
