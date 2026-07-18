@@ -17,13 +17,11 @@ A hands-on repository documenting my journey into **Generative AI**, where every
 
 # 📖 About
 
-This repository is my personal learning space for **Generative AI**.
+This repository documents my journey of learning **Generative AI** from fundamentals to building production-ready AI applications.
 
-Instead of only following tutorials, I build small practical programs to understand how modern AI systems work under the hood.
+Instead of only following tutorials, I build practical projects to understand how modern AI systems work behind the scenes.
 
-My goal is not just to use AI tools, but to understand **why they work, how they work, and how to build real-world AI applications**.
-
-As I continue learning, this repository will grow with new concepts, experiments, mini-projects, and complete AI applications.
+My goal is to understand not only **how to use AI**, but also **how to build AI applications from scratch using industry-standard tools and workflows.**
 
 ---
 
@@ -37,20 +35,22 @@ As I continue learning, this repository will grow with new concepts, experiments
 - 📦 Structured JSON Outputs
 - ✅ Pydantic Validation
 - ⚡ Groq API Integration
+- 📄 PDF & DOCX Parsing
 - 🐍 Python for AI Development
 
 ---
 
 # 📚 Learning Journey
 
-## 📅 Week 1
+## 📅 Week 1 — LLM Fundamentals & API Mastery
 
 | Day | Concept | Status |
 |------|----------|--------|
 | Day 1 | First Groq API Request | ✅ |
 | Day 2 | System Prompts & Temperature | ✅ |
 | Day 3 | Token Usage Analysis | ✅ |
-| Day 4 | Structured JSON using Pydantic | ✅ |
+| Day 4 | Structured JSON with Pydantic | ✅ |
+| Day 5 | AI Resume Parser (PDF & DOCX) | ✅ |
 
 ---
 
@@ -63,7 +63,8 @@ Generative-AI-Learning
 │   ├── day1
 │   ├── day2
 │   ├── day3
-│   └── day4
+│   ├── day4
+│   └── day5
 │
 └── README.md
 ```
@@ -75,44 +76,76 @@ Generative-AI-Learning
 | Category | Technologies |
 |----------|--------------|
 | Language | Python |
-| AI Models | Llama 3.3 70B |
+| AI Model | Llama 3.3 70B |
 | API | Groq API |
 | Validation | Pydantic |
 | Environment | python-dotenv |
+| Document Parsing | PyMuPDF, python-docx |
 | Data Format | JSON |
+
+---
+
+# 🚀 Projects Completed
+
+### ✅ AI Resume Parser
+
+Built a resume parser capable of:
+
+- Reading PDF resumes
+- Reading DOCX resumes
+- Extracting resume text
+- Sending resumes to an LLM
+- Returning structured JSON
+- Validating output using Pydantic
 
 ---
 
 # 🚀 Current Highlights
 
-✨ Connected Python applications with the Groq API
+✨ Built applications using the Groq API
 
 ✨ Learned prompt engineering fundamentals
 
-✨ Measured LLM token usage and API responses
+✨ Controlled LLM behavior using System Prompts
 
-✨ Generated structured JSON using Pydantic schemas
+✨ Measured token usage and API responses
 
-✨ Practiced clean Git commits with professional version control
+✨ Generated structured JSON outputs
+
+✨ Validated AI responses using Pydantic
+
+✨ Built an AI-powered Resume Parser
+
+✨ Practiced clean project architecture and Git workflows
 
 ---
 
-# 🎯 What's Coming Next
+# 🗺️ 8-Week Learning Roadmap
 
-This repository will continue evolving as I learn more about Generative AI.
+| Week | Focus |
+|-------|-------|
+| ✅ Week 1 | LLM Fundamentals & API Mastery |
+| ⏳ Week 2 | Prompt Engineering & Streaming |
+| ⏳ Week 3 | RAG Foundations |
+| ⏳ Week 4 | Advanced RAG & Evaluation |
+| ⏳ Week 5 | AI Agents & Tool Calling |
+| ⏳ Week 6 | LangGraph, MCP & Multi-Agent Systems |
+| ⏳ Week 7 | Guardrails, Observability & Security |
+| ⏳ Week 8 | Deployment, Fine-Tuning & Capstone Project |
 
-Future additions may include:
+---
 
-- 📄 Resume Parser
+# 🎯 Upcoming Projects
+
 - 💼 Resume vs Job Description Matcher
 - 📊 Resume Scoring System
-- 🧠 Advanced Prompt Engineering
+- 📄 Cover Letter Generator
 - 🔍 Retrieval-Augmented Generation (RAG)
-- 🗄️ Vector Databases
+- 🗄️ Vector Databases (Qdrant)
 - 🤖 AI Agents
 - 🌐 LangChain
 - 🦜 LangGraph
-- 🚀 End-to-End AI Projects
+- 🚀 Production-Ready AI Applications
 
 ---
 
@@ -120,15 +153,15 @@ Future additions may include:
 
 I believe the best way to learn AI is by building.
 
-Every commit in this repository represents a concept I've explored, implemented, and documented as part of my learning journey.
+Every folder in this repository represents concepts that I've studied, implemented, tested, and documented through hands-on projects.
 
-The goal is to create a collection of practical experiments that gradually evolve into production-ready AI projects.
+The goal is to gradually evolve these learning exercises into production-ready AI systems while developing a strong understanding of modern AI engineering.
 
 ---
 
 <div align="center">
 
-### 🌱 Learning one concept at a time.
+### 🌱 Learning one project at a time.
 
 ⭐ If you find this repository helpful, feel free to explore the code and follow my learning journey.
 

@@ -155,6 +155,69 @@ Return ONLY valid JSON.
 
 # Testing # 
 
+# TESTING SETUP
+#
+# This project is currently designed to parse ONE resume at a time.
+#
+# To test another resume, simply replace the file path below with the path of
+# a different PDF or DOCX resume.
+#
+# Example:
+# pdf_file = "resumes/resume2.pdf"
+# pdf_file = "resumes/my_resume.docx"
+#
+#
+# WHY IS THIS HARDCODED?
+#
+# During development, working with a single resume makes debugging much easier.
+# If something goes wrong, we immediately know which file caused the issue.
+#
+#
+# HOW WILL THIS WORK IN A REAL APPLICATION?
+#
+# Hardcoding file paths is NOT scalable.
+#
+# In a production application, resumes will not be specified manually.
+# Instead, the program can be modified in one of the following ways:
+#
+# 1. User Upload
+#    - User uploads a resume through a website or desktop application.
+#    - The uploaded file is passed directly to read_resume().
+#
+# 2. Folder Processing (Batch Parsing)
+#    - The program scans the "resumes/" folder automatically.
+#    - It finds every PDF and DOCX file.
+#    - Each resume is parsed one by one using a loop.
+#
+#      Example Flow:
+#
+#      resumes/
+#      ├── resume1.pdf
+#      ├── resume2.pdf
+#      ├── resume3.docx
+#      ├── resume4.pdf
+#      └── ...
+#
+#      for file in resumes_folder:
+#          text = read_resume(file)
+#          parsed_resume = parse_resume(text)
+#
+#
+# WHY IS THIS BETTER?
+#
+# Instead of changing the file path every time, the program automatically
+# processes any number of resumes (10, 100, or even thousands) without
+# modifying the source code.
+#
+#
+# CURRENT STATUS
+#
+# ✅ Single Resume Parsing (Implemented)
+# ⏳ Multiple Resume Parsing (Future Improvement)
+# ⏳ Upload Resume Feature (Future Improvement)
+# ⏳ Save Parsed Output to Database/JSON (Future Improvement)
+# =============================================================================
+
 def main():
     resume_files = [
         ("PDF", "resumes/resume1.pdf"),
