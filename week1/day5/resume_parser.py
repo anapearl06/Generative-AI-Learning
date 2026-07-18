@@ -2,6 +2,38 @@ import fitz
 from docx import Document
 from pydantic import BaseModel
 from typing import List
+from groq import Groq
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
+client = Groq(
+    api_key=os.getenv("GROQ_API_KEY")
+)
+
+# Pydantic Models
+
+class Experience(BaseModel):
+    company: str
+    role: str
+    duration: str
+    description: str
+    skills_used: List[str]
+
+
+class Resume(BaseModel):
+    name: str
+    email: str
+    phone: str
+    total_experience_years: float
+    skills: List[str]
+    experience: List[Experience]
+    projects: List[str]
+    certifications: List[str]
+
+
+# Resume Readers
 
 def read_pdf(filepath):
     """
@@ -35,7 +67,7 @@ def read_docx(filepath):
 
 def read_resume(filepath):
     """
-    Decides which reader to use based on file extension.
+    Chooses the correct reader based on file extension.
     """
 
     if filepath.endswith(".pdf"):
@@ -44,59 +76,71 @@ def read_resume(filepath):
     elif filepath.endswith(".docx"):
         return read_docx(filepath)
 
-    else:
-        return None
+    return None
 
-# Testing PDF
+def parse_resume(resume_text):
+    """
+    Sends resume text to the LLM and returns a structured Resume object.
+    """
 
-pdf_file = "resumes/resume1.pdf"
+    completion = client.chat.completions.parse(
+        model="llama-3.3-70b-versatile",
+        messages=[
+            {
+                "role": "system",
+                "content": """
+                    You are an expert HR recruiter and resume parser.
 
-pdf_text = read_resume(pdf_file)
+                    Extract all resume information accurately.
 
-print("=" * 70)
-print("PDF OUTPUT")
-print("=" * 70)
+                    Return the response according to the Resume schema.
+                    """
+            },
+            {
+                "role": "user",
+                "content": resume_text
+            }
+        ],
+        response_format=Resume,
+    )
 
-print(pdf_text)
+    parsed_resume = completion.choices[0].message.parsed
 
-# Testing DOCX
+    return parsed_resume
+# Testing
 
-docx_file = "resumes/resume3.docx"
+def main():
 
-docx_text = read_resume(docx_file)
+    # PDF
 
-print("=" * 70)
-print("DOCX OUTPUT")
-print("=" * 70)
+    pdf_file = "resumes/resume1.pdf"
 
-print(docx_text)
+    pdf_text = read_resume(pdf_file)
 
-class Experience(BaseModel):
+    print("=" * 70)
+    print("PARSED PDF RESUME")
+    print("=" * 70)
 
-    company: str
+    parsed_resume = parse_resume(pdf_text)
 
-    role: str
+    print(parsed_resume)
 
-    duration: str
+    print()
 
-    description: str
+    # DOCX
 
-    skills_used: List[str]
+    docx_file = "resumes/resume3.docx"
 
-class Resume(BaseModel):
+    docx_text = read_resume(docx_file)
 
-    name: str
+    print("=" * 70)
+    print("PARSED DOCX RESUME")
+    print("=" * 70)
 
-    email: str
+    parsed_resume = parse_resume(docx_text)
 
-    phone: str
+    print(parsed_resume)
 
-    total_experience_years: float
 
-    skills: List[str]
-
-    experience: List[Experience]
-
-    projects: List[str]
-
-    certifications: List[str]
+if __name__ == "__main__":
+    main()
