@@ -2,15 +2,24 @@
 
 <div align="center">
 
-### 🤖 Learning • Building • Experimenting with Modern AI
+# 🤖 Learning • Building • Experimenting • Growing
 
-A hands-on repository documenting my journey into **Generative AI**, where every folder represents a new concept and every commit captures a meaningful learning milestone.
+### From learning LLM fundamentals to building production-ready AI applications.
 
+<p>
 <img src="https://img.shields.io/badge/Python-3.14-blue?style=for-the-badge&logo=python" />
 <img src="https://img.shields.io/badge/Groq-API-black?style=for-the-badge" />
 <img src="https://img.shields.io/badge/Llama-3.3%2070B-success?style=for-the-badge" />
 <img src="https://img.shields.io/badge/Pydantic-JSON%20Validation-E92063?style=for-the-badge" />
 <img src="https://img.shields.io/badge/Package%20Manager-uv-6E56CF?style=for-the-badge" />
+</p>
+
+![GitHub last commit](https://img.shields.io/github/last-commit/anapearl06/Generative-AI-Learning?style=for-the-badge)
+![GitHub repo size](https://img.shields.io/github/repo-size/anapearl06/Generative-AI-Learning?style=for-the-badge)
+![GitHub stars](https://img.shields.io/github/stars/anapearl06/Generative-AI-Learning?style=for-the-badge)
+![GitHub license](https://img.shields.io/github/license/anapearl06/Generative-AI-Learning?style=for-the-badge)
+
+**Building one AI project at a time 🚀**
 
 </div>
 
@@ -18,40 +27,93 @@ A hands-on repository documenting my journey into **Generative AI**, where every
 
 # 📖 About
 
-This repository documents my journey of learning **Generative AI** from fundamentals to building production-ready AI applications.
+Welcome to my **Generative AI Learning Repository**.
 
-Instead of only following tutorials, I build practical projects to understand how modern AI systems work behind the scenes.
+This repository documents my complete **8-week journey** of learning **Generative AI Engineering**, where every week focuses on a different area of modern AI development.
 
-My goal is to understand not only **how to use AI**, but also **how to build AI applications from scratch using industry-standard tools and workflows.**
+Instead of simply following tutorials, I build practical projects to understand:
+
+- How Large Language Models (LLMs) work
+- How to communicate effectively with AI using Prompt Engineering
+- How AI applications are built in production
+- How structured outputs improve reliability
+- How modern AI systems are designed end-to-end
+
+Every folder represents a new concept.
+
+Every project represents a new skill.
+
+Every commit represents measurable progress.
+
+My long-term goal is to become an AI Engineer capable of building production-ready applications using modern AI technologies.
+
+---
+
+# 🎯 Repository Goals
+
+- Learn AI by building real-world projects
+- Understand concepts instead of memorizing APIs
+- Practice clean and scalable Python code
+- Follow industry-standard project structure
+- Document the complete learning journey
+- Build a portfolio of practical AI applications
 
 ---
 
 # 🧠 Topics Explored
 
-- 🤖 Large Language Models (LLMs)
-- 💬 Prompt Engineering
-- 📝 System & User Prompts
-- 🌡️ Temperature Control
-- 📊 Token Usage Analysis
-- 📦 Structured JSON Outputs
-- ✅ Pydantic Validation
-- ⚡ Groq API Integration
-- 📄 PDF & DOCX Parsing
-- 🐍 Python for AI Development
+### ✅ Week 1 — LLM Fundamentals
+
+- Large Language Models (LLMs)
+- Groq API
+- System Prompts
+- User Prompts
+- Temperature
+- Token Usage
+- Structured JSON Outputs
+- Pydantic Validation
+- PDF Parsing
+- DOCX Parsing
+- AI Resume Parser
+
+---
+
+### 🚧 Week 2 — Prompt Engineering
+
+- Prompt Engineering Fundamentals
+- Role Prompting
+- Task Prompting
+- Constraint Prompting
+- Output Formatting
+- Few-shot Prompting
+- Prompt Evaluation
+- Prompt Playground
 
 ---
 
 # 📚 Learning Journey
 
-## 📅 Week 1 — LLM Fundamentals & API Mastery
+## ✅ Week 1 — LLM Fundamentals & API Mastery
 
-| Day | Concept | Status |
-|------|----------|--------|
+| Day | Project | Status |
+|------|---------|--------|
 | Day 1 | First Groq API Request | ✅ |
 | Day 2 | System Prompts & Temperature | ✅ |
 | Day 3 | Token Usage Analysis | ✅ |
 | Day 4 | Structured JSON with Pydantic | ✅ |
 | Day 5 | AI Resume Parser (PDF & DOCX) | ✅ |
+
+---
+
+## 🚧 Week 2 — Prompt Engineering
+
+| Day | Project | Status |
+|------|---------|--------|
+| Day 6 | Prompt Engineering Playground | 🚧 |
+| Day 7 | Few-shot Prompting | ⏳ |
+| Day 8 | Prompt Evaluation | ⏳ |
+| Day 9 | Prompt Chaining | ⏳ |
+| Day 10 | Mini Prompt Engineering Project | ⏳ |
 
 ---
 
@@ -71,6 +133,13 @@ Generative-AI-Learning
 │       ├── pyproject.toml
 │       ├── uv.lock
 │       └── .env.example
+│
+├── week2
+│   ├── day6
+│   ├── day7
+│   ├── day8
+│   ├── day9
+│   └── day10
 │
 └── README.md
 ```
@@ -96,21 +165,32 @@ Generative-AI-Learning
 
 ## ✅ AI Resume Parser
 
-Built an AI-powered resume parser capable of:
+An AI-powered Resume Parser capable of:
 
 - Reading PDF resumes
 - Reading DOCX resumes
-- Extracting resume text
-- Sending resumes to a Large Language Model
+- Extracting document text
+- Sending resumes to an LLM
 - Returning structured JSON
-- Validating output using Pydantic
-- Supporting both PDF and DOCX formats
+- Validating responses using Pydantic
+- Supporting multiple resume formats
+
+---
+
+## 🚧 Prompt Engineering Playground
+
+Currently building a collection of Prompt Engineering experiments covering:
+
+- Role Prompting
+- Task Prompting
+- Constraints
+- Output Formatting
+- Prompt Optimization
+- Prompt Evaluation
 
 ---
 
 # ⚙️ Getting Started
-
-Follow these steps to run the project on your local machine.
 
 ## 1️⃣ Clone the Repository
 
@@ -122,45 +202,47 @@ git clone https://github.com/anapearl06/Generative-AI-Learning.git
 
 ## 2️⃣ Navigate to the Project Folder
 
+Example:
+
 ```bash
 cd Generative-AI-Learning/week1/day5
+```
+
+or
+
+```bash
+cd Generative-AI-Learning/week2/day6
 ```
 
 ---
 
 ## 3️⃣ Install Dependencies
 
-This project uses **uv** for dependency management.
-
 ```bash
 uv sync
 ```
 
-This command will:
+This command automatically:
 
-- Create a virtual environment (if it doesn't already exist)
-- Install all required packages
-- Match package versions defined in `uv.lock`
+- Creates a virtual environment
+- Installs all dependencies
+- Uses versions locked in `uv.lock`
 
 ---
 
 ## 4️⃣ Configure Environment Variables
 
-Create a `.env` file inside the project directory.
-
-Example:
+Create a `.env` file.
 
 ```env
 GROQ_API_KEY=your_groq_api_key
 ```
 
-Replace `your_groq_api_key` with your own Groq API key.
-
-> Never upload your `.env` file or API keys to GitHub.
+Never upload your API keys to GitHub.
 
 ---
 
-## 5️⃣ Activate the Virtual Environment
+## 5️⃣ Activate Virtual Environment
 
 ### Windows
 
@@ -176,148 +258,179 @@ source .venv/bin/activate
 
 ---
 
-## 6️⃣ Run the Project
+## 6️⃣ Run Any Project
+
+Example:
 
 ```bash
 python resume_parser.py
-```
-
-The application will:
-
-- Read PDF and DOCX resumes
-- Extract text from documents
-- Send the extracted text to the Groq LLM
-- Generate structured JSON
-- Validate the output using Pydantic
-- Display the parsed resume in the terminal
-
----
-
-## 📂 Testing Different Resumes
-
-To test another resume:
-
-1. Place your PDF or DOCX file inside the `resumes/` folder.
-
-Example:
-
-```text
-resumes/
-├── resume1.pdf
-├── resume2.pdf
-├── resume3.docx
-├── my_resume.pdf
-└── my_resume.docx
-```
-
-2. Open `resume_parser.py`.
-
-3. Update the `resume_files` list.
-
-Example:
-
-```python
-resume_files = [
-    ("PDF", "resumes/my_resume.pdf"),
-]
 ```
 
 or
 
-```python
-resume_files = [
-    ("DOCX", "resumes/my_resume.docx"),
-]
+```bash
+python prompt_eng.py
 ```
 
-4. Save the file and run:
+Each project contains its own implementation and examples.
+
+---
+
+# 📂 Testing Different Projects
+
+Each day's project is self-contained.
+
+Navigate to the desired project folder and run the corresponding Python file.
+
+Example:
 
 ```bash
+cd week1/day5
 python resume_parser.py
 ```
 
----
+or
 
-## 🔄 Future Improvements
+```bash
+cd week2/day6
+python prompt_eng.py
+```
 
-The current implementation is designed for learning and development.
-
-Future versions may include:
-
-- Automatic folder scanning
-- Batch resume parsing
-- Resume upload through a web interface
-- Database integration
-- Resume vs Job Description matching
-- AI-powered resume scoring
-- Vector database integration (Qdrant)
-- RAG-powered resume search
+As new projects are added, simply navigate to their respective folders and run the main Python file.
 
 ---
 
-# 🚀 Current Highlights
+# 🚀 Current Progress
 
-✨ Built applications using the Groq API
+## ✅ Completed
 
-✨ Learned prompt engineering fundamentals
-
-✨ Controlled LLM behavior using System Prompts
-
-✨ Measured token usage and API responses
-
-✨ Generated structured JSON outputs
-
-✨ Validated AI responses using Pydantic
-
-✨ Built an AI-powered Resume Parser
-
-✨ Practiced clean project architecture and Git workflows
+- Groq API Integration
+- Large Language Models (LLMs)
+- System Prompts
+- User Prompts
+- Temperature Control
+- Token Usage Analysis
+- Structured JSON Outputs
+- Pydantic Validation
+- PDF Parsing
+- DOCX Parsing
+- AI Resume Parser
 
 ---
 
-# 🗺️ 8-Week Learning Roadmap
+## 🚧 Currently Learning
 
-| Week | Focus |
-|-------|-------|
-| ✅ Week 1 | LLM Fundamentals & API Mastery |
-| ⏳ Week 2 | Prompt Engineering & Streaming |
-| ⏳ Week 3 | RAG Foundations |
-| ⏳ Week 4 | Advanced RAG & Evaluation |
-| ⏳ Week 5 | AI Agents & Tool Calling |
-| ⏳ Week 6 | LangGraph, MCP & Multi-Agent Systems |
-| ⏳ Week 7 | Guardrails, Observability & Security |
-| ⏳ Week 8 | Deployment, Fine-Tuning & Capstone Project |
+- Prompt Engineering
+- Role Prompting
+- Task Prompting
+- Constraint Prompting
+- Output Formatting
+- Prompt Optimization
 
 ---
 
-# 🎯 Upcoming Projects
+# ✨ Repository Highlights
+
+- 🤖 Hands-on AI Engineering Projects
+- 📚 Well-Structured Learning Journey
+- 🧩 Modular Project Organization
+- ⚡ Modern Python Development using `uv`
+- 📝 Clean and Readable Code
+- 📦 Strong Focus on Project Structure
+- 🛠️ Practical Implementation over Theory
+- 🔄 Regular Repository Updates
+- 📖 Beginner-Friendly Documentation
+
+---
+
+# 🛣️ 8-Week Learning Roadmap
+
+| Week | Focus | Status |
+|-------|-------|--------|
+| ✅ Week 1 | LLM Fundamentals & API Mastery | Completed |
+| 🚧 Week 2 | Prompt Engineering | In Progress |
+| ⏳ Week 3 | Retrieval-Augmented Generation (RAG) | Planned |
+| ⏳ Week 4 | Advanced RAG & Evaluation | Planned |
+| ⏳ Week 5 | AI Agents & Tool Calling | Planned |
+| ⏳ Week 6 | LangGraph, MCP & Multi-Agent Systems | Planned |
+| ⏳ Week 7 | Guardrails, Security & Observability | Planned |
+| ⏳ Week 8 | Deployment, Fine-Tuning & Capstone Project | Planned |
+
+---
+
+# 🚀 Upcoming Projects
 
 - 💼 Resume vs Job Description Matcher
-- 📊 Resume Scoring System
+- 📊 AI Resume Scoring System
 - 📄 Cover Letter Generator
+- 🤖 AI Chatbot
+- 🧠 Multi-Agent AI System
 - 🔍 Retrieval-Augmented Generation (RAG)
 - 🗄️ Vector Databases (Qdrant)
-- 🤖 AI Agents
 - 🌐 LangChain
 - 🦜 LangGraph
+- ⚙️ MCP (Model Context Protocol)
 - 🚀 Production-Ready AI Applications
+
+---
+
+# 🎓 Learning Principles
+
+This repository follows a simple philosophy:
+
+- Learn by Building
+- Understand Before Optimizing
+- Write Clean & Readable Code
+- Build Small, Learn Deep
+- Document Every Milestone
+- Focus on Real-World Applications
+- Improve with Every Commit
 
 ---
 
 # 💡 Repository Philosophy
 
-I believe the best way to learn AI is by building.
+I believe the best way to learn Artificial Intelligence is by building practical applications.
 
-Every folder in this repository represents concepts that I've studied, implemented, tested, and documented through hands-on projects.
+Instead of collecting certificates or watching endless tutorials, this repository focuses on writing code, experimenting with ideas, making mistakes, learning from them, and continuously improving.
 
-The goal is to gradually evolve these learning exercises into production-ready AI systems while developing a strong understanding of modern AI engineering.
+Every folder represents a concept explored through implementation.
+
+Every project represents a step forward.
+
+Every commit documents real progress.
+
+The long-term vision of this repository is to evolve from simple learning exercises into a collection of production-ready AI applications while developing strong software engineering practices along the way.
+
+---
+
+# 🤝 Contributions
+
+This repository is primarily maintained as a personal learning project.
+
+However, if you have suggestions, improvements, or ideas, feel free to open an issue or submit a pull request.
+
+Constructive feedback is always welcome.
+
+---
+
+# ⭐ Support
+
+If you find this repository useful or enjoy following the learning journey, consider giving it a ⭐ on GitHub.
+
+It helps motivate me to continue building and sharing more AI projects.
 
 ---
 
 <div align="center">
 
-### 🌱 Learning one project at a time.
+## 🚀 Learning Generative AI — One Project at a Time
 
-⭐ If you find this repository helpful, feel free to explore the code and follow my learning journey.
+### Week 1 ✅ Completed
+### Week 2 🚧 In Progress
+
+**Thanks for visiting my repository!**
+
+⭐ Happy Learning ⭐
 
 </div>
